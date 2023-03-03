@@ -102,7 +102,6 @@ def select_pass_A_fail_B(df_A, df_B, wp_cut_A, wp_cut_B, disc='D_b'):
     return df_A.loc[pass_A & ~pass_B]
 
 
-
 def load_umami_models(config):
     """
     Load a set of model predictions from h5 files in the format written out by the TDD.
