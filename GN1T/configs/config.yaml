@@ -1,0 +1,150 @@
+# plots are saved here
+plot_out_dir: &plot_out_dir /gpfs/slac/atlas/fs1/u/losanti/GN1T_plots/
+
+# we're not plotting tracks
+tracks: False
+
+
+# ----------------------------------------------------------------------
+# SAMPLES
+# ----------------------------------------------------------------------
+samples:
+  ttbar:
+    sample: ttbar
+    latex: $t\overline{t}$
+    pt_range: [20, 250]
+  
+# ----------------------------------------------------------------------
+# MODELS
+# ----------------------------------------------------------------------
+model_configs: models.yaml
+
+# models to use from model_configs file
+models:
+  - GN1
+  - GN1T
+  - GN1o
+  - GN1To
+
+denominator: &denominator GN1
+
+# ----------------------------------------------------------------------
+# PLOTS
+# ----------------------------------------------------------------------
+
+# compare the tagger discriminant for the following two models
+discriminant_plots:
+  - models:
+    - *denominator
+    - GN1T
+    args:
+      target_flavour: 5
+      log: True
+      x_range: [-15, 25]
+      yf: 0.5
+      yi: 10
+      effs: [0.6, 0.85]
+  
+  - models:
+    - *denominator
+    - GN1T
+    args:
+      target_flavour: 4
+      log: True
+      x_range: [-20, 25]
+      yf: 0.5
+      yi: 10
+      effs: [0.2, 0.5]
+
+
+# plot ROC curves for all models
+roc_plots:
+  - sample:
+      ttbar
+    args:
+      denominator: *denominator
+      target_flavour: 5
+      x_range: [0.6, 1.0]
+      y_range_left: [1, 2e3]
+      y_range_right: [1, 2e5]
+  - sample:
+      ttbar
+    args:
+      denominator: *denominator
+      target_flavour: 4
+      x_range: [0.1, 1.0]
+      y_range_left: [1, 2e3]
+      y_range_right: [1, 2e5]
+
+# performance as a function of some variable
+differential_performance:
+  - sample:
+      ttbar
+    args: &eff_by_pt_args
+      x_var: pt
+      target_flavour: 5
+      eff_flavour: 0
+      eff: 0.01
+      x_bins: 10
+      x_range: [20, 250]
+      denominator: *denominator
+      y_range: [0.6, 1.1]
+      ratio_y_range: [0.9, 1.2]
+      flat_per_bin: true
+
+  - sample:
+      ttbar
+    args:
+      <<: *eff_by_pt_args
+      eff_flavour: 4
+      eff: 0.1
+
+  - sample:
+      ttbar
+    args: &eff_by_pt_default_wp
+      x_var: pt
+      target_flavour: 5
+      eff_flavour: 5
+      wp: 77
+      x_bins: 10
+      x_range: [20, 250]
+      denominator: *denominator
+      y_range: [0.6, 1.1]
+      ratio_y_range: [0.5, 2.5]
+      flat_per_bin: false
+
+  - sample:
+      ttbar
+    args:
+      <<: *eff_by_pt_default_wp
+      eff_flavour: 4
+      y_range: [0.0, 0.4]
+      ratio_y_range: [0, 1.5]
+
+  - sample:
+      ttbar
+    args:
+      <<: *eff_by_pt_default_wp
+      eff_flavour: 0
+      y_range: [0.0, 0.01]
+      ratio_y_range: [0, 1.5]
+
+
+# performance parameterised by fc
+fc_scans:
+  
+  - sample:
+      ttbar
+    args:
+      target_flavour: 5
+      eff: 0.7
+      x_range: [0, 0.12]
+      y_range: [0, 0.004]
+  
+  - sample:
+      ttbar
+    args:
+      target_flavour: 4
+      eff: 0.35
+      x_range: [0, 0.3]
+      y_range: [0, 0.1]

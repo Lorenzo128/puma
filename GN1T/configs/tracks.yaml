@@ -1,0 +1,26 @@
+# plots are saved here
+plot_out_dir: &plot_out_dir /gpfs/slac/atlas/fs1/u/losanti/GN1T_plots/
+
+# we're plotting tracks
+tracks: True
+
+
+# ----------------------------------------------------------------------
+# SAMPLES
+# ----------------------------------------------------------------------
+samples:
+  ttbar:
+    sample: ttbar
+    latex: $t\overline{t}$
+    pt_range: [20, 250]
+
+# ----------------------------------------------------------------------
+# MODELS
+# ----------------------------------------------------------------------
+model_configs: models.yaml
+
+# models
+models:
+  - GN1
+  - GN1T
+

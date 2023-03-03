@@ -1,0 +1,36 @@
+text.usetex             : False
+mathtext.default        : it
+
+figure.dpi              : 125
+figure.facecolor        : white
+axes.facecolor          : white
+savefig.facecolor       : white
+savefig.pad_inches      : 0.1
+savefig.bbox            : tight
+
+axes.grid               : False
+axes.titlesize          : 16
+axes.labelsize          : 16
+xaxis.labellocation     : right
+yaxis.labellocation     : top
+
+xtick.labelsize         : 12
+ytick.labelsize         : 12
+
+xtick.top               : True
+xtick.direction         : in
+xtick.major.size        : 7
+xtick.minor.visible     : True
+xtick.minor.size        : 3
+
+ytick.right             : True
+ytick.direction         : in
+ytick.major.size        : 6
+ytick.minor.visible     : True
+ytick.minor.size        : 3
+
+legend.fontsize         : 10
+legend.labelspacing     : 0.25
+legend.framealpha       : 1
+legend.edgecolor        : black
+legend.frameon          : False

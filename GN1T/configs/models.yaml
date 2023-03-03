@@ -1,0 +1,94 @@
+# DL1 info comes directly from the hybrid samples saved in a subdir of this dir
+hybrid_save_dir: &hybrid_save_dir /gpfs/slac/atlas/fs1/u/losanti/saved_models/
+central_dumps_dir: &central_dumps_dir /gpfs/slac/atlas/fs1/u/losanti/saved_models/
+
+# evaluated models and checkpoints live in subdirs here
+model_save_dir: &model_save_dir /gpfs/slac/atlas/fs1/u/losanti/saved_models/
+
+# defaults
+default_fc: &default_fc 0.05
+default_fb: &default_fb 0.2
+
+# models
+models:
+
+ 
+  GN1:
+    source: pytorch
+    ntrack_light: True
+    save_dir: *model_save_dir
+    id: GN1_noT_20230301-T105831
+    fc: *default_fc
+    fb: *default_fb
+    wps:
+      60: 4.730
+      70: 3.320
+      77: 2.352
+      85: 1.086
+    style:
+      label: GN1 [std]
+      color: mediumaquamarine
+      ls: solid
+
+
+
+  GN1T:
+    source: pytorch
+    ntrack_light: True
+    save_dir: *model_save_dir
+    id: GN1_dt_20230302-T003530
+    fc: *default_fc
+    fb: *default_fb
+    wps:
+      60: 5.188
+      70: 3.668
+      77: 2.641
+      85: 1.324
+    style:
+      label: GN1T
+      color: deepskyblue
+      ls: solid
+
+  GN1o:
+    source: pytorch
+    ntrack_light: False
+    save_dir: *model_save_dir
+    id: GN1_noT_20230222-T153421
+    fc: *default_fc
+    fb: *default_fb
+    wps:
+      60: 5.188
+      70: 3.668
+      77: 2.641
+      85: 1.324
+    style:
+      label: GN1 noT old
+      color: xkcd:lavender pink
+      ls: solid
+
+  GN1To:
+    source: pytorch
+    ntrack_light: False
+    save_dir: *model_save_dir
+    id: GN1_20230222-T073754
+    fc: *default_fc
+    fb: *default_fb
+    wps:
+      60: 5.188
+      70: 3.668
+      77: 2.641
+      85: 1.324
+    style:
+      label: GN1 noT old
+      color: xkcd:lipstick
+      ls: solid
+
+
+#color: xkcd:violet blue
+# color: deepskyblue
+#      color: xkcd:lipstick
+#      color: orange
+#     color: mediumaquamarine  
+#    color: xkcd:lavender pink
+#      color: xkcd:apricot
+   
